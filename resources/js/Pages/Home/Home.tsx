@@ -3,9 +3,11 @@ import Layout from "../Layout/Layout";
 
 function Home() {
     return (
-        <div>
-            <button>WORK</button>
-        </div>
+        <>
+            <div>
+                <button>WORK</button>
+            </div>
+        </>
     )
 }
 
