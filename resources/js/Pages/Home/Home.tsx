@@ -4,7 +4,7 @@ import Layout from "../Layout/Layout";
 function Home() {
     return (
         <>
-            <div className="min-h-screen bg-blue-400 w-full overflow-hidden fixed">
+            <div className="min-h-screen bg-blue-400 w-full">
                 <button>WORK</button>
             </div>
         </>
