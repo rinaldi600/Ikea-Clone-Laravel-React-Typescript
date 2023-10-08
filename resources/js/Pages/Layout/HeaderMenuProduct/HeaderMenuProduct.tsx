@@ -1,15 +1,22 @@
 import SidebarHeader from "../SidebarHeader/SidebarHeader";
 import SearchProduct from "./SearchProduct/SearchProduct";
 import { Link } from "@inertiajs/react";
+import { useState, useEffect } from "react";
 
 function HeaderMenuProduct() {
+
+    const [valueToggle, setToggle] = useState<boolean>(false);
+
+    useEffect(() => {
+        console.log(valueToggle);
+    })
 
     return (
         <>
             <div className="h-[97.1px] font-['ikea'] flex items-center ty:h-[73px]">
                 <div className="flex justify-between lg:justify-normal mx-auto w-[90%] gap-2 min-h-fit">
                     <div className="flex items-center gap-5">
-                        <div className="w-[40px] hidden lg:flex items-center justify-center cursor-pointer h-[40px] hover:bg-[#F5F5F5] rounded-full">
+                        <div onClick={() => setToggle(true)} className="w-[40px] hidden lg:flex items-center justify-center cursor-pointer h-[40px] hover:bg-[#F5F5F5] rounded-full">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="#111111" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-[24px] text-[#111111] h-[24px]">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                             </svg>
@@ -59,7 +66,9 @@ function HeaderMenuProduct() {
             <div className="w-full lg:hidden flex items-center relative">
                 <SearchProduct />
             </div>
-            <SidebarHeader/>
+            {
+                valueToggle && <SidebarHeader valueToggle={setToggle}/>
+            }
         </>
     )
 

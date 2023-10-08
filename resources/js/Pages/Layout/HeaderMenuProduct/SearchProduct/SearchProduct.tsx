@@ -1,4 +1,11 @@
+import { useState, useEffect } from "react";
+
 function SearchProduct() {
+
+    const handleInput = () => {
+        console.log("WORK");
+    }
+
     return (
         <div className="w-full absolute z-30 inset-0 bg-red-300 min-h-[400px] p-2 rounded-lg">
             <div className="max-w-[1000px] flex items-center mx-auto h-[60px] overflow-hidden bg-[#F5F5F5] rounded-full">
@@ -8,7 +15,7 @@ function SearchProduct() {
                     </svg>
                 </div>
                 <div className="w-[89%] md:w-[92%] lg:w-[95%] bg-green-300">
-                    <input type="text" placeholder="Cari..." className="w-full h-full border-none outline-none bg-[#F5F5F5] border-transparent focus:border-transparent focus:ring-0" />
+                    <input onChange={handleInput} type="text" placeholder="Cari..." className="w-full h-full border-none outline-none bg-[#F5F5F5] border-transparent focus:border-transparent focus:ring-0" />
                 </div>
             </div>
             <div className="max-w-[1000px]">
