@@ -6,9 +6,11 @@ import { useState, useEffect } from "react";
 function HeaderMenuProduct() {
 
     const [valueToggle, setToggle] = useState<boolean>(false);
+    const [valueToggleSearchProduct, setValueSearchProduct] = useState<boolean>(false);
 
     useEffect(() => {
-        console.log(valueToggle);
+        console.log("TEST");
+        console.log(valueToggleSearchProduct);
     })
 
     return (
@@ -26,7 +28,7 @@ function HeaderMenuProduct() {
                         </div>
                     </div>
                     <div className="w-full hidden lg:flex items-center relative">
-                        <SearchProduct />
+                        <SearchProduct setValueSearchProduct={setValueSearchProduct} />
                     </div>
                     <div className="flex flex-wrap justify-center lg:justify-normal lg:flex-nowrap items-center lg:gap-2">
                         <div className="w-[40px] flex lg:hidden items-center justify-center cursor-pointer h-[40px] hover:bg-[#F5F5F5] rounded-full">
@@ -63,8 +65,8 @@ function HeaderMenuProduct() {
                     </div>
                 </div>
             </div>
-            <div className="w-full lg:hidden flex items-center relative">
-                <SearchProduct />
+            <div className="w-full lg:hidden flex items-center  relative">
+                <SearchProduct setValueSearchProduct={setValueSearchProduct}/>
             </div>
             {
                 valueToggle && <SidebarHeader valueToggle={setToggle}/>
