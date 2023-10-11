@@ -9,7 +9,6 @@ function HeaderMenuProduct() {
     const [valueToggleSearchProduct, setValueSearchProduct] = useState<boolean>(false);
 
     useEffect(() => {
-        console.log("TEST");
         console.log(valueToggleSearchProduct);
     })
 
@@ -31,7 +30,7 @@ function HeaderMenuProduct() {
                         <SearchProduct setValueSearchProduct={setValueSearchProduct} />
                     </div>
                     <div className="flex flex-wrap justify-center lg:justify-normal lg:flex-nowrap items-center lg:gap-2">
-                        <div className="w-[40px] flex lg:hidden items-center justify-center cursor-pointer h-[40px] hover:bg-[#F5F5F5] rounded-full">
+                        <div  onClick={() => setValueSearchProduct(true)} className="w-[40px] flex lg:hidden items-center justify-center cursor-pointer h-[40px] hover:bg-[#F5F5F5] rounded-full">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 text-center mx-auto font-bold">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                             </svg>
@@ -65,7 +64,7 @@ function HeaderMenuProduct() {
                     </div>
                 </div>
             </div>
-            <div className="w-full lg:hidden flex items-center  relative">
+            <div className={`w-full ${valueToggleSearchProduct ? 'lg:hidden' : 'hidden'} flex items-center relative`}>
                 <SearchProduct setValueSearchProduct={setValueSearchProduct}/>
             </div>
             {
