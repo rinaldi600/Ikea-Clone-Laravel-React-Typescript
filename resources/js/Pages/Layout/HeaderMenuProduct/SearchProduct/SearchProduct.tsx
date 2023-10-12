@@ -1,5 +1,7 @@
 import { useState } from "react";
 import React, {Dispatch, SetStateAction} from "react";
+import ImageBannerOne from '../../../../../img/juan-burgos-Dp2xzrdXrNs-unsplash.jpg'
+import ImageBannerTwo from '../../../../../img/suchit-poojari-ljRiZl00n18-unsplash.jpg'
 
 interface PropsInterface {
     setValueSearchProduct : Dispatch<SetStateAction<boolean>>
@@ -11,7 +13,7 @@ function SearchProduct(props : PropsInterface) {
 
     return (
         <>
-            <div className={`w-full absolute z-[9999999] inset-0 ${toggleBorder ? 'min-h-[400px] bg-red-300' : ''} p-2 rounded-lg`}>
+            <div className={`w-full absolute z-[9999999] inset-0 ${toggleBorder ? 'h-[600px] bg-white overflow-y-scroll' : ''} p-2 rounded-lg`}>
                 <div className={`max-w-[1000px] flex items-center mx-auto h-[60px] overflow-hidden bg-[#F5F5F5] rounded-full ${toggleBorder ? 'border-2 border-[#0058A3]' : ''}`}>
                     <div className="w-[11%] md:w-[8%] lg:w-[5%] pl-2 text-center mx-auto">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 text-center mx-auto font-bold">
@@ -27,8 +29,18 @@ function SearchProduct(props : PropsInterface) {
                         </svg>
                     </div>
                 </div>
-                <div className={`w-full min-h-[300px] ${toggleBorder ? '' : 'hidden'}`}>
-                    <button>TESTf</button>
+                <div className={`w-full h-fit mt-2 ${toggleBorder ? 'flex' : 'hidden'}`}>
+                    <div className="h-[700px] w-[70%] overflow-y-scroll scrollbar-hide">
+
+                    </div>
+                    <div className="h-[700px] w-[30%] overflow-y-scroll scrollbar-hide">
+                        <div>
+                            <img src={ImageBannerOne} alt="Banner Image One" />
+                        </div>
+                        <div>
+                            <img src={ImageBannerTwo} alt="Banner Image Two" />
+                        </div>
+                    </div>
                 </div>
             </div>
             <div onClick={() => setBorderToggle(false)} className={`${toggleBorder ? 'w-full z-[9999] bg-[#E1E1E1]/50 fixed inset-0' : ''}`}>

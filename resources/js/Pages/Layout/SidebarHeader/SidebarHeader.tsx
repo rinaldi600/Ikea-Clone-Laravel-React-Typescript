@@ -8,7 +8,7 @@ interface propsInterface {
 function SidebarHeader(props : propsInterface) {
 
     return (
-        <div className={`w-full inline-flex h-full z-[9999] fixed overflow-hidden bg-[#DCDCDC]/50 top-0 right-0 bottom-0 left-0`}>
+        <div className={`w-full inline-flex h-full z-[99999999] fixed overflow-hidden bg-[#DCDCDC]/50 top-0 right-0 bottom-0 left-0`}>
             <div className="w-full font-['ikea'] lg:w-[30%] bg-white min-h-screen overflow-y-scroll overflow-x-hidden">
                 <div className="h-[85px] w-ful flex justify-start gap-12 pl-7 items-center">
                     <div onClick={() => props.valueToggle(false)} className="w-[40px] flex items-center justify-center cursor-pointer h-[40px] hover:bg-[#F5F5F5] rounded-full">
