@@ -1,11 +1,13 @@
 import { useState } from "react";
-import React, {Dispatch, SetStateAction} from "react";
+import React, {Dispatch, SetStateAction, Suspense, lazy} from "react";
 import ImageBannerOne from '../../../../../img/juan-burgos-Dp2xzrdXrNs-unsplash.jpg'
 import ImageBannerTwo from '../../../../../img/suchit-poojari-ljRiZl00n18-unsplash.jpg'
 
 interface PropsInterface {
     setValueSearchProduct : Dispatch<SetStateAction<boolean>>
 }
+
+const RecommendationProduct = React.lazy(() => import('../../RecommendationProduct/RecommendationProduct'));
 
 function SearchProduct(props : PropsInterface) {
 
@@ -29,16 +31,34 @@ function SearchProduct(props : PropsInterface) {
                         </svg>
                     </div>
                 </div>
-                <div className={`w-full h-fit mt-2 ${toggleBorder ? 'flex' : 'hidden'}`}>
-                    <div className="h-[700px] w-[70%] overflow-y-scroll scrollbar-hide">
-
+                <div className={`w-full h-fit mt-2 ${toggleBorder ? 'flex flex-wrap' : 'hidden'}`}>
+                    <div className="h-[400px] xl:h-[700px] w-full xl:w-[70%] overflow-y-scroll">
+                        <div className="pl-4 pt-2">
+                            <div>
+                                <h1 className="font-semibold text-base">Produk</h1>
+                            </div>
+                            <Suspense fallback={<h1>Loading....</h1>}>
+                                <div className="flex gap-16 flex-wrap">
+                                    <RecommendationProduct/>
+                                    <RecommendationProduct/>
+                                    <RecommendationProduct/>
+                                    <RecommendationProduct/>
+                                    <RecommendationProduct/>
+                                    <RecommendationProduct/>
+                                    <RecommendationProduct/>
+                                    <RecommendationProduct/>
+                                    <RecommendationProduct/>
+                                    <RecommendationProduct/>
+                                </div>
+                            </Suspense>
+                        </div>
                     </div>
-                    <div className="h-[700px] w-[30%] overflow-y-scroll scrollbar-hide">
+                    <div className="h-[700px] w-full xl:w-[30%] overflow-y-scroll">
                         <div>
-                            <img src={ImageBannerOne} alt="Banner Image One" />
+                            <img className="w-full" src={ImageBannerOne} alt="Banner Image One" />
                         </div>
                         <div>
-                            <img src={ImageBannerTwo} alt="Banner Image Two" />
+                            <img className="w-full" src={ImageBannerTwo} alt="Banner Image Two" />
                         </div>
                     </div>
                 </div>
