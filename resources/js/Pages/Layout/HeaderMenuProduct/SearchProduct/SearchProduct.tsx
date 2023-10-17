@@ -2,6 +2,7 @@ import { useState } from "react";
 import React, {Dispatch, SetStateAction, Suspense, lazy} from "react";
 import ImageBannerOne from '../../../../../img/juan-burgos-Dp2xzrdXrNs-unsplash.jpg'
 import ImageBannerTwo from '../../../../../img/suchit-poojari-ljRiZl00n18-unsplash.jpg'
+import ProductImageTrial from '../../../../../img/daniil-silantev-1P6AnKDw6S8-unsplash.jpg'
 
 interface PropsInterface {
     setValueSearchProduct : Dispatch<SetStateAction<boolean>>
@@ -39,16 +40,11 @@ function SearchProduct(props : PropsInterface) {
                             </div>
                             <Suspense fallback={<h1>Loading....</h1>}>
                                 <div className="flex gap-16 flex-wrap">
-                                    <RecommendationProduct/>
-                                    <RecommendationProduct/>
-                                    <RecommendationProduct/>
-                                    <RecommendationProduct/>
-                                    <RecommendationProduct/>
-                                    <RecommendationProduct/>
-                                    <RecommendationProduct/>
-                                    <RecommendationProduct/>
-                                    <RecommendationProduct/>
-                                    <RecommendationProduct/>
+                                    <RecommendationProduct productImage={ProductImageTrial} productName={'ADDE/SANDSBERG'} productFact={'meja dan 4 kursi'} productPrice={1369000} productLink="/"/>
+                                    <RecommendationProduct productImage={ProductImageTrial} productName={'ADDE/SANDSBERG'} productFact={'meja dan 4 kursi'} productPrice={1369000} productLink="/"/>
+                                    <RecommendationProduct productImage={ProductImageTrial} productName={'ADDE/SANDSBERG'} productFact={'meja dan 4 kursi'} productPrice={1369000} productLink="/"/>
+                                    <RecommendationProduct productImage={ProductImageTrial} productName={'ADDE/SANDSBERG'} productFact={'meja dan 4 kursi'} productPrice={1369000} productLink="/"/>
+                                    <RecommendationProduct productImage={ProductImageTrial} productName={'ADDE/SANDSBERG'} productFact={'meja dan 4 kursi'} productPrice={1369000} productLink="/"/>
                                 </div>
                             </Suspense>
                         </div>
