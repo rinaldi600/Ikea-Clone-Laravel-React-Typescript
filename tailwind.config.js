@@ -16,6 +16,16 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 custom: ['ikea', ...defaultTheme.fontFamily.sans],
             },
+            keyframes: {
+                slideShow: {
+                    '0%': {
+                        transform: 'translateX(0%)',
+                    },
+                    '50%': {
+                        transform: 'translateX(100%)',
+                    },
+                }
+            }
         },
         screens: {
             'ty': {'max': '575px'},
