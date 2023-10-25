@@ -13,7 +13,7 @@ function Layout(props : { children : React.ReactNode }) {
             <div>
                 <HeaderMenuProduct/>
             </div>
-            <div className="overflow-hidden fixed w-full">
+            <div className="">
                 {props.children}
             </div>
         </>
