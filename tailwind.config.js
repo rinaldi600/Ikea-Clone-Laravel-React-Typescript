@@ -27,6 +27,22 @@ export default {
                 },
                 slideNext: {
                     '0%': {
+                        transform: 'translateX(-100%)',
+                    },
+                    '100%': {
+                        transform: 'translateX(0%)',
+                    },
+                },
+                slidePrev : {
+                    '0%': {
+                        transform: 'translateX(0%)',
+                    },
+                    '100%': {
+                        transform: 'translateX(-100%)',
+                    },
+                },
+                slidePrev2 : {
+                    '0%': {
                         transform: 'translateX(100%)',
                     },
                     '100%': {
