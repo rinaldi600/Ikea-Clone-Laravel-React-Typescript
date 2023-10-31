@@ -15,8 +15,8 @@ function Banner() {
     const imageSlide = [BannerImageOne, BannerImageTwo, BannerImageThree]
 
     useEffect(() => {
-        console.log('Previous : ' + buttonPrev);
-        console.log('Next : ' + buttonNext);
+        console.log('Previous : ' + buttonNext);
+        console.log('Next : ' + countNext);
     })
 
     // ${slideShow ? 'animate-[slideShow_1s_linear] translate-x-full' : ''}
@@ -42,10 +42,10 @@ function Banner() {
                                 (buttonNext === true) &&
                                 <>
                                     <div className='w-full animate-[slideShow_1s_linear] inline-block bg-yellow-300 h-full'>
-                                        <img className='w-full h-full object-cover' src={BannerImageOne} alt="" />
+                                        <img className='w-full h-full object-cover' src={imageSlide[countPrev - 1]} alt="" />
                                     </div>
                                     <div className='w-full animate-[slideNext_1s_linear] absolute bg-green-500 h-full'>
-                                        <img className='w-full h-full object-cover' src={BannerImageTwo} alt="" />
+                                        <img className='w-full h-full object-cover' src={imageSlide[countNext]} alt="" />
                                     </div>
                                 </>
                             }
@@ -67,7 +67,7 @@ function Banner() {
                     <svg onClick={() => {setButtonPrev(true); setButtonNext(false)}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-[40px] h-[40px] cursor-pointer">
                     <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-4.28 9.22a.75.75 0 000 1.06l3 3a.75.75 0 101.06-1.06l-1.72-1.72h5.69a.75.75 0 000-1.5h-5.69l1.72-1.72a.75.75 0 00-1.06-1.06l-3 3z" clipRule="evenodd" />
                     </svg>
-                    <svg onClick={() => {setButtonNext(true); setButtonPrev(false)}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-[40px] h-[40px] cursor-pointer">
+                    <svg onClick={() => {setButtonNext(true); setButtonPrev(false); setCountPrev(countPrev + 1); setCountNext(countNext + 1)}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-[40px] h-[40px] cursor-pointer">
                     <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" clipRule="evenodd" />
                     </svg>
                 </div>
