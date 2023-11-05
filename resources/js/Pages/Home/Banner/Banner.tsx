@@ -14,35 +14,40 @@ function Banner() {
     const imageSlide = [BannerImageOne, BannerImageTwo, BannerImageThree]
 
     useEffect(() => {
-        console.log(countPrev);
+        // console.log('Prev : ' + countPrev);
+        console.log('PREV : ' + countPrev);
+        console.log('NEXT : ' + (countNext));
     });
 
     const clickNext = () => {
-        setCountPrev(countPrev + 1);
-        setCountNext(countNext + 1);
 
-        if (imageRef.current?.classList.contains('animate-[slideShow_1s_linear]')) {
-            imageRef.current?.classList.remove('animate-[slideShow_1s_linear]');
-            void imageRef.current?.offsetWidth;
-            imageRef.current?.classList.add('animate-[slideShow_1s_linear]');
+        if (countPrev === 2 && countNext === 0) {
+            setCountNext(1);
+            setCountPrev(0);
+        } else {
+            setCountNext(countNext > 1 ? 0 : countNext + 1);
+            setCountPrev(countPrev + countNext > 2 ? 2 : countPrev + countNext);
         }
 
-        if (imageRef2.current?.classList.contains('animate-[slideNext_1s_linear]')) {
-            imageRef2.current?.classList.remove('animate-[slideNext_1s_linear]');
-            void imageRef2.current?.offsetWidth;
-            imageRef2.current?.classList.add('animate-[slideNext_1s_linear]');
-        }
+        imageRef.current?.classList.remove('animate-[slideShow_1s_linear]');
+        imageRef2.current?.classList.remove('animate-[slideNext_1s_linear]');
+
+        void imageRef.current?.offsetWidth;
+        imageRef.current?.classList.add('animate-[slideShow_1s_linear]');
+
+        void imageRef2.current?.offsetWidth;
+        imageRef2.current?.classList.add('animate-[slideNext_1s_linear]');
     }
-    // ${slideShow ? 'animate-[slideShow_1s_linear] translate-x-full' : ''}
+
     return (
         <>
             <div onMouseEnter={() => setSlickPrev(true)} onMouseLeave={() => setSlickPrev(false)} className="h-[369.013px] cursor-pointer relative overflow-hidden w-[100%] xl:w-[95%]">
                 <div className='w-full flex h-[369.013px]'>
-                    <div ref={imageRef} className={`w-full animate-[slideShow_1s_linear] inline-block h-full`}>
-                        <img className='w-full h-full object-cover' src={imageSlide[countNext]} alt="" />
-                    </div>
-                    <div ref={imageRef2} className={`w-full animate-[slideNext_1s_linear] absolute h-full`}>
+                    <div ref={imageRef} className={`w-full inline-block h-full`}>
                         <img className='w-full h-full object-cover' src={imageSlide[countPrev]} alt="" />
+                    </div>
+                    <div ref={imageRef2} className={`w-full absolute h-full`}>
+                        <img className='w-full h-full object-cover' src={imageSlide[countNext]} alt="" />
                     </div>
                 </div>
                 <div className={`${slickPrev ? 'flex' : 'hidden'} bg-transparent justify-between items-center absolute inset-0 w-full h-full`}>
