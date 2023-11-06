@@ -14,9 +14,8 @@ function Banner() {
     const imageSlide = [BannerImageOne, BannerImageTwo, BannerImageThree]
 
     useEffect(() => {
-        // console.log('Prev : ' + countPrev);
+        console.log('NEXT : ' + countNext);
         console.log('PREV : ' + countPrev);
-        console.log('NEXT : ' + (countNext));
     });
 
     const clickNext = () => {
@@ -30,13 +29,45 @@ function Banner() {
         }
 
         imageRef.current?.classList.remove('animate-[slideShow_1s_linear]');
+        imageRef.current?.classList.remove('animate-[slidePrev_1s_linear]');
+
         imageRef2.current?.classList.remove('animate-[slideNext_1s_linear]');
+        imageRef2.current?.classList.remove('animate-[slidePrev2_1s_linear]');
 
         void imageRef.current?.offsetWidth;
         imageRef.current?.classList.add('animate-[slideShow_1s_linear]');
 
         void imageRef2.current?.offsetWidth;
         imageRef2.current?.classList.add('animate-[slideNext_1s_linear]');
+    }
+
+    const clickPrev = () => {
+
+        if (countPrev === 0 && countNext === 0) {
+            setCountNext(2);
+            setCountPrev(0);
+        } else {
+            setCountNext(countNext - 1);
+            setCountPrev(countPrev + 1);
+        }
+
+        if (imageRef.current?.classList.contains('animate-[slideShow_1s_linear]') ||
+            imageRef.current?.classList.contains('animate-[slidePrev_1s_linear]')) {
+            imageRef.current?.classList.remove('animate-[slideShow_1s_linear]');
+            imageRef.current?.classList.remove('animate-[slidePrev_1s_linear]');
+        }
+
+        if (imageRef2.current?.classList.contains('animate-[slideShow_1s_linear]') ||
+            imageRef2.current?.classList.contains('animate-[slidePrev2_1s_linear]')) {
+            imageRef2.current?.classList.remove('animate-[slideShow_1s_linear]');
+            imageRef2.current?.classList.remove('animate-[slidePrev2_1s_linear]');
+        }
+
+        void imageRef.current?.offsetWidth;
+        imageRef.current?.classList.add('animate-[slidePrev_1s_linear]');
+
+        void imageRef2.current?.offsetWidth;
+        imageRef2.current?.classList.add('animate-[slidePrev2_1s_linear]');
     }
 
     return (
@@ -51,7 +82,7 @@ function Banner() {
                     </div>
                 </div>
                 <div className={`${slickPrev ? 'flex' : 'hidden'} bg-transparent justify-between items-center absolute inset-0 w-full h-full`}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-[40px] h-[40px] cursor-pointer">
+                    <svg onClick={clickPrev} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-[40px] h-[40px] cursor-pointer">
                     <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-4.28 9.22a.75.75 0 000 1.06l3 3a.75.75 0 101.06-1.06l-1.72-1.72h5.69a.75.75 0 000-1.5h-5.69l1.72-1.72a.75.75 0 00-1.06-1.06l-3 3z" clipRule="evenodd" />
                     </svg>
                     <svg onClick={clickNext} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-[40px] h-[40px] cursor-pointer">
