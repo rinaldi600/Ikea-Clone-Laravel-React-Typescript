@@ -16,7 +16,7 @@ function Banner() {
     useEffect(() => {
         console.log('NEXT : ' + countNext);
         console.log('PREV : ' + countPrev);
-    });
+    }, [countNext, countPrev]);
 
     const clickNext = () => {
 
@@ -39,6 +39,7 @@ function Banner() {
 
         void imageRef2.current?.offsetWidth;
         imageRef2.current?.classList.add('animate-[slideNext_1s_linear]');
+
     }
 
     const clickPrev = () => {
@@ -48,7 +49,7 @@ function Banner() {
             setCountPrev(0);
         } else {
             setCountNext(countNext - 1);
-            setCountPrev(countPrev + 1);
+            setCountPrev(countPrev + countNext);
         }
 
         if (imageRef.current?.classList.contains('animate-[slideShow_1s_linear]') ||
