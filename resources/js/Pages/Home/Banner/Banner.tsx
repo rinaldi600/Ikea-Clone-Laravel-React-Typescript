@@ -8,6 +8,8 @@ function Banner() {
     const [slickPrev, setSlickPrev] = useState<boolean>(false);
     const [countPrev, setCountPrev] = useState<number>(0);
     const [countNext, setCountNext] = useState<number>(0);
+    const [isNext, setNext] = useState<boolean>(false);
+    const [isPrev, setPrev] = useState<boolean>(false);
     const imageRef = useRef<HTMLInputElement>(null);
     const imageRef2 = useRef<HTMLInputElement>(null);
 
@@ -47,9 +49,21 @@ function Banner() {
         if (countPrev === 0 && countNext === 0) {
             setCountNext(2);
             setCountPrev(0);
-        } else {
-            setCountNext(countNext - 1);
-            setCountPrev(countPrev + countNext);
+        }
+
+        if (countPrev === 0 && countNext === 2) {
+            setCountNext(1);
+            setCountPrev(2);
+        }
+
+        if (countPrev === 2 && countNext === 1) {
+            setCountNext(0);
+            setCountPrev(1);
+        }
+
+        if (countPrev === 1 && countNext === 0) {
+            setCountNext(2);
+            setCountPrev(0);
         }
 
         if (imageRef.current?.classList.contains('animate-[slideShow_1s_linear]') ||
