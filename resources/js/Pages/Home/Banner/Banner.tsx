@@ -10,24 +10,59 @@ function Banner() {
     const [countNext, setCountNext] = useState<number>(0);
     const [isNext, setNext] = useState<boolean>(false);
     const [isPrev, setPrev] = useState<boolean>(false);
+    const [isProgress, setProgress] = useState<number>(1);
     const imageRef = useRef<HTMLInputElement>(null);
     const imageRef2 = useRef<HTMLInputElement>(null);
+    const parentProgress = useRef<HTMLInputElement>(null);
 
     const imageSlide = [BannerImageOne, BannerImageTwo, BannerImageThree]
 
     useEffect(() => {
-        console.log('NEXT : ' + countNext);
-        console.log('PREV : ' + countPrev);
-    }, [countNext, countPrev]);
+        // console.log('NEXT : ' + countNext);
+        // console.log('PREV : ' + countPrev);
+        // console.log(isNext);
+        // console.log(isPrev);
+    }, /*[countNext, countPrev, isNext, isPrev]*/);
 
     const clickNext = () => {
 
-        if (countPrev === 2 && countNext === 0) {
-            setCountNext(1);
-            setCountPrev(0);
+        setProgress(isProgress >= 2 ? 0 : isProgress + 1);
+        console.log(isProgress);
+        if (parentProgress.current?.children[isProgress].classList.contains('bg-[#F5F5F5]')) {
+            parentProgress.current?.children[isProgress - 1].classList.remove('bg-[#7A7A7A]');
+            parentProgress.current?.children[isProgress].classList.remove('bg-[#F5F5F5]');
+            parentProgress.current?.children[isProgress].classList.add('bg-[#7A7A7A]');
         } else {
-            setCountNext(countNext > 1 ? 0 : countNext + 1);
-            setCountPrev(countPrev + countNext > 2 ? 2 : countPrev + countNext);
+            if (isProgress === 0) {
+                parentProgress.current?.children[isProgress].classList.remove('bg-[#F5F5F5]');
+                parentProgress.current?.children[isProgress].classList.add('bg-[#7A7A7A]');
+                parentProgress.current?.children[2].classList.remove('bg-[#7A7A7A]');
+                parentProgress.current?.children[2].classList.add('bg-[#F5F5F5]');
+            } else {
+                parentProgress.current?.children[isProgress - 1].classList.remove('bg-[#7A7A7A]');
+                parentProgress.current?.children[isProgress].classList.remove('bg-[#F5F5F5]');
+                parentProgress.current?.children[isProgress].classList.add('bg-[#7A7A7A]');
+            }
+        }
+
+        console.log(parentProgress.current?.children[isProgress]);
+
+        setNext(true);
+
+        if (isPrev) {
+
+            setCountNext(countPrev);
+            setCountPrev(countNext);
+
+            setPrev(false);
+        } else {
+            if (countPrev === 2 && countNext === 0) {
+                setCountNext(1);
+                setCountPrev(0);
+            } else {
+                setCountNext(countNext > 1 ? 0 : countNext + 1);
+                setCountPrev(countPrev + countNext > 2 ? 2 : countPrev + countNext);
+            }
         }
 
         imageRef.current?.classList.remove('animate-[slideShow_1s_linear]');
@@ -46,24 +81,34 @@ function Banner() {
 
     const clickPrev = () => {
 
-        if (countPrev === 0 && countNext === 0) {
-            setCountNext(2);
-            setCountPrev(0);
-        }
+        setPrev(true);
 
-        if (countPrev === 0 && countNext === 2) {
-            setCountNext(1);
-            setCountPrev(2);
-        }
+        if (isNext) {
 
-        if (countPrev === 2 && countNext === 1) {
-            setCountNext(0);
-            setCountPrev(1);
-        }
+            setCountNext(countPrev);
+            setCountPrev(countNext);
 
-        if (countPrev === 1 && countNext === 0) {
-            setCountNext(2);
-            setCountPrev(0);
+            setNext(false);
+        } else {
+            if (countPrev === 0 && countNext === 0) {
+                setCountNext(2);
+                setCountPrev(0);
+            }
+
+            if (countPrev === 0 && countNext === 2) {
+                setCountNext(1);
+                setCountPrev(2);
+            }
+
+            if (countPrev === 2 && countNext === 1) {
+                setCountNext(0);
+                setCountPrev(1);
+            }
+
+            if (countPrev === 1 && countNext === 0) {
+                setCountNext(2);
+                setCountPrev(0);
+            }
         }
 
         if (imageRef.current?.classList.contains('animate-[slideShow_1s_linear]') ||
@@ -105,10 +150,10 @@ function Banner() {
                     </svg>
                 </div>
             </div>
-            <div className="flex pt-3 items-center">
-                <div className="w-[426.358px] bg-[#7A7A7A] h-[5px] rounded-l"></div>
-                <div className="w-[426.358px] bg-[#F5F5F5] h-[5px]"></div>
-                <div className="w-[426.358px] bg-[#F5F5F5] h-[5px] rounded-r"></div>
+            <div ref={parentProgress} className="flex pt-3 items-center w-[100%] xl:w-[95%] rounded">
+                <div className="w-[426.358px] bg-[#7A7A7A] h-[5px] rounded"></div>
+                <div className="w-[426.358px] bg-[#F5F5F5] h-[5px] rounded"></div>
+                <div className="w-[426.358px] bg-[#F5F5F5] h-[5px] rounded"></div>
             </div>
         </>
     )

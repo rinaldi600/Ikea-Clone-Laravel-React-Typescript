@@ -9,7 +9,7 @@ function HeaderMenuProduct() {
     const [valueToggleSearchProduct, setValueSearchProduct] = useState<boolean>(false);
 
     useEffect(() => {
-        console.log(valueToggleSearchProduct);
+
     })
 
     return (

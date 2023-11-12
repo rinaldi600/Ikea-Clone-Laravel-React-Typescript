@@ -24,7 +24,7 @@ function Home() {
                     <div className="pt-9">
                         <Banner/>
                     </div>
-                    <div className="min-h-screen bg-blue-500">
+                    <div className="min-h-screen">
                         <h1>WORK</h1>
                     </div>
                 </div>
