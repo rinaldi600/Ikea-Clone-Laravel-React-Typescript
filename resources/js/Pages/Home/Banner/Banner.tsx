@@ -10,7 +10,7 @@ function Banner() {
     const [countNext, setCountNext] = useState<number>(0);
     const [isNext, setNext] = useState<boolean>(false);
     const [isPrev, setPrev] = useState<boolean>(false);
-    const [isProgress, setProgress] = useState<number>(1);
+    const [isProgress, setProgress] = useState<number>(0);
     const imageRef = useRef<HTMLInputElement>(null);
     const imageRef2 = useRef<HTMLInputElement>(null);
     const parentProgress = useRef<HTMLInputElement>(null);
@@ -18,36 +18,62 @@ function Banner() {
     const imageSlide = [BannerImageOne, BannerImageTwo, BannerImageThree]
 
     useEffect(() => {
-        // console.log('NEXT : ' + countNext);
-        // console.log('PREV : ' + countPrev);
-        // console.log(isNext);
-        // console.log(isPrev);
-    }, /*[countNext, countPrev, isNext, isPrev]*/);
-
-    const clickNext = () => {
-
-        setProgress(isProgress >= 2 ? 0 : isProgress + 1);
         console.log(isProgress);
-        if (parentProgress.current?.children[isProgress].classList.contains('bg-[#F5F5F5]')) {
-            parentProgress.current?.children[isProgress - 1].classList.remove('bg-[#7A7A7A]');
-            parentProgress.current?.children[isProgress].classList.remove('bg-[#F5F5F5]');
-            parentProgress.current?.children[isProgress].classList.add('bg-[#7A7A7A]');
-        } else {
-            if (isProgress === 0) {
-                parentProgress.current?.children[isProgress].classList.remove('bg-[#F5F5F5]');
-                parentProgress.current?.children[isProgress].classList.add('bg-[#7A7A7A]');
-                parentProgress.current?.children[2].classList.remove('bg-[#7A7A7A]');
-                parentProgress.current?.children[2].classList.add('bg-[#F5F5F5]');
-            } else {
+        console.log(parentProgress.current?.children[isProgress]);
+
+        if (isNext) {
+            if (parentProgress.current?.children[isProgress].classList.contains('bg-[#F5F5F5]')) {
                 parentProgress.current?.children[isProgress - 1].classList.remove('bg-[#7A7A7A]');
                 parentProgress.current?.children[isProgress].classList.remove('bg-[#F5F5F5]');
                 parentProgress.current?.children[isProgress].classList.add('bg-[#7A7A7A]');
+            } else {
+                if (isProgress === 0) {
+                    parentProgress.current?.children[isProgress].classList.remove('bg-[#F5F5F5]');
+                    parentProgress.current?.children[isProgress].classList.add('bg-[#7A7A7A]');
+                    parentProgress.current?.children[2].classList.remove('bg-[#7A7A7A]');
+                    parentProgress.current?.children[2].classList.add('bg-[#F5F5F5]');
+                } else {
+                    parentProgress.current?.children[isProgress - 1].classList.remove('bg-[#7A7A7A]');
+                    parentProgress.current?.children[isProgress].classList.remove('bg-[#F5F5F5]');
+                    parentProgress.current?.children[isProgress].classList.add('bg-[#7A7A7A]');
+                }
             }
         }
 
-        console.log(parentProgress.current?.children[isProgress]);
+        if (isPrev) {
+            if (parentProgress.current?.children[isProgress].classList.contains('bg-[#7A7A7A]')) {
+                parentProgress.current?.children[isProgress + 1].classList.remove('bg-[#7A7A7A]');
+                parentProgress.current?.children[isProgress].classList.remove('bg-[#7A7A7A]');
+                parentProgress.current?.children[isProgress].classList.add('bg-[#F5F5F5]');
+            } else {
+
+                if (isProgress === 2) {
+                    parentProgress.current?.children[0].classList.add('bg-[#F5F5F5]');
+                    parentProgress.current?.children[2].classList.remove('bg-[#F5F5F5]');
+                    parentProgress.current?.children[2].classList.add('bg-[#7A7A7A]');
+                } else {
+                    parentProgress.current?.children[isProgress + 1].classList.remove('bg-[#7A7A7A]');
+                    parentProgress.current?.children[isProgress].classList.add('bg-[#7A7A7A]');
+                }
+                // if (isProgress === 0) {
+                //     parentProgress.current?.children[isProgress].classList.remove('bg-[#F5F5F5]');
+                //     parentProgress.current?.children[isProgress].classList.add('bg-[#7A7A7A]');
+                //     parentProgress.current?.children[2].classList.remove('bg-[#7A7A7A]');
+                //     parentProgress.current?.children[2].classList.add('bg-[#F5F5F5]');
+                // } else {
+                //     parentProgress.current?.children[isProgress - 1].classList.remove('bg-[#7A7A7A]');
+                //     parentProgress.current?.children[isProgress].classList.remove('bg-[#F5F5F5]');
+                //     parentProgress.current?.children[isProgress].classList.add('bg-[#7A7A7A]');
+                // }
+            }
+        }
+
+    }, [isProgress]);
+
+    const clickNext = () => {
 
         setNext(true);
+        setProgress(isProgress >= 2 ? 0 : isProgress + 1);
 
         if (isPrev) {
 
@@ -82,6 +108,7 @@ function Banner() {
     const clickPrev = () => {
 
         setPrev(true);
+        setProgress(isProgress <= 0 ? 2 : isProgress - 1);
 
         if (isNext) {
 
