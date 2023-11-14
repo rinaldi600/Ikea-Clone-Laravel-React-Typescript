@@ -1,9 +1,16 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Head } from "@inertiajs/react";
 import HeaderMenuService from "./HeaderMenuService/HeaderMenuService";
 import HeaderMenuProduct from "./HeaderMenuProduct/HeaderMenuProduct";
 
 function Layout(props : { children : React.ReactNode }) {
+
+    const [valueFixedNavbar, setValueFixedNavbar] = useState<boolean>(false);
+
+    useEffect(() => {
+        console.log(valueFixedNavbar);
+    })
+
     return (
         <>
             <Head title="IKEA Indonesia - Jual Perabot Rumah & Furnitur Kantor Online" />
@@ -11,9 +18,9 @@ function Layout(props : { children : React.ReactNode }) {
                 <HeaderMenuService/>
             </div>
             <div>
-                <HeaderMenuProduct/>
+                <HeaderMenuProduct setValueFixedNavbar={setValueFixedNavbar}/>
             </div>
-            <div className="">
+            <div className={`${valueFixedNavbar ? 'fixed' : ''}`}>
                 {props.children}
             </div>
         </>
