@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../Layout/Layout";
 import { Link } from "@inertiajs/react";
 import Banner from "./Banner/Banner";
+import CategoryBanner from "./CategoryBanner/CategoryBanner";
 
 function Home() {
     return (
@@ -25,7 +26,7 @@ function Home() {
                         <Banner/>
                     </div>
                     <div className="min-h-screen">
-                        <h1>WORK</h1>
+                        <CategoryBanner/>
                     </div>
                 </div>
             </div>
