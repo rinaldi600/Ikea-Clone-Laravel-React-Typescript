@@ -3,11 +3,12 @@ import Layout from "../Layout/Layout";
 import { Link } from "@inertiajs/react";
 import Banner from "./Banner/Banner";
 import CategoryBanner from "./CategoryBanner/CategoryBanner";
+import ProductList from "./ProductList/ProductList";
 
 function Home() {
     return (
         <>
-            <div className="min-h-screen w-full lg:pt-0 font-['ikea']">
+            <div className="min-h-screen w-full lg:pt-0 font-['ikea'] mb-3">
                 <div className="min-h-[41.2px] hidden font-bold text-sm text-[#111111] pl-32 xl:flex items-center gap-5">
                     <Link href="/">Produk</Link>
                     <Link href="/">Ruangan</Link>
@@ -27,6 +28,7 @@ function Home() {
                     </div>
                     <div className="min-h-screen">
                         <CategoryBanner/>
+                        <ProductList/>
                     </div>
                 </div>
             </div>

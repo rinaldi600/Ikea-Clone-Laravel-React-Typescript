@@ -10,7 +10,7 @@ function CategoryBanner() {
     return (
         <div className="mt-5 w-[100%] xl:w-[95%]">
             <h1 className="text-center font-bold text-3xl">Kategori Pilihan</h1>
-            <div className="flex flex-wrap justify-between gap-2 lg:gap-3 pt-11">
+            <div className="flex flex-wrap justify-center ty:justify-center mx-auto gap-7 pt-11">
                 <ItemBanner imageBanner={ImageBannerSofa} titleBanner='Sofa'/>
                 <ItemBanner imageBanner={ImageBannerWorkspace} titleBanner='Meja Kerja Rumah'/>
                 <ItemBanner imageBanner={ImageBannerSeatCushion} titleBanner='Bantal Kursi'/>
