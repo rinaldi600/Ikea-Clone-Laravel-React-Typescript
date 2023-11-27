@@ -18,18 +18,14 @@ function Banner() {
     const imageSlide = [BannerImageOne, BannerImageTwo, BannerImageThree]
 
     useEffect(() => {
-        console.log(isProgress);
-        console.log(parentProgress.current?.children[isProgress]);
 
         if (isNext) {
             if (isProgress === 0) {
-                console.log('WORK');
                 parentProgress.current?.children[isProgress].classList.remove('bg-[#F5F5F5]');
                 parentProgress.current?.children[isProgress].classList.add('bg-[#7A7A7A]');
                 parentProgress.current?.children[2].classList.remove('bg-[#7A7A7A]');
                 parentProgress.current?.children[2].classList.add('bg-[#F5F5F5]');
             } else {
-                console.log('WORK 1');
                 parentProgress.current?.children[isProgress - 1].classList.remove('bg-[#7A7A7A]');
                 parentProgress.current?.children[isProgress - 1].classList.add('bg-[#F5F5F5]');
                 parentProgress.current?.children[isProgress].classList.remove('bg-[#F5F5F5]');
@@ -43,7 +39,6 @@ function Banner() {
                     parentProgress.current?.children[2].classList.remove('bg-[#F5F5F5]');
                     parentProgress.current?.children[2].classList.add('bg-[#7A7A7A]');
                 } else {
-                    console.log('MASUK 3');
                     parentProgress.current?.children[isProgress + 1].classList.remove('bg-[#7A7A7A]');
                     parentProgress.current?.children[isProgress + 1].classList.add('bg-[#F5F5F5]');
                     parentProgress.current?.children[isProgress].classList.remove('bg-[#F5F5F5]');

@@ -8,7 +8,6 @@ function Layout(props : { children : React.ReactNode }) {
     const [valueFixedNavbar, setValueFixedNavbar] = useState<boolean>(false);
 
     useEffect(() => {
-        console.log(valueFixedNavbar);
     })
 
     return (
