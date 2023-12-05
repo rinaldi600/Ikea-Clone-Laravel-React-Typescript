@@ -4,17 +4,26 @@ function ProductList() {
 
     const parentRef = useRef<HTMLInputElement>(null)
     const [number, setNumber] = useState<number>(0);
+    const [isLeft, setLeft] = useState<boolean>(false);
+    const [isRight, setRight] = useState<boolean>(false);
 
     useEffect(() => {
-        console.log(number);
-        console.log(parentRef.current?.children[number]);
-    }, [number]);
+        console.log('LEFT : ', isLeft);
+        console.log('RIGHT : ', isRight);
+        // console.log(number);
+        // console.log(parentRef.current?.children[number]);
+    }, [number, isLeft, isRight]);
 
     const leftArrow = () => {
+        parentRef.current?.children[0].classList.add('hidden');
+        parentRef.current?.children[1].classList.add('hidden');
+        console.log(parentRef.current?.clientHeight)
+        setLeft(true);
         setNumber(number + 1);
     }
 
     const rightArrow = () => {
+        setRight(true);
         setNumber(number - 1);
     }
 
