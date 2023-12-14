@@ -15,16 +15,16 @@ function ProductList() {
     }, [number, isLeft, isRight]);
 
     const leftArrow = () => {
-        parentRef.current?.children[0].classList.add('hidden');
-        parentRef.current?.children[1].classList.add('hidden');
-        console.log(parentRef.current?.clientHeight)
-        setLeft(true);
-        setNumber(number + 1);
+        // parentRef.current?.children[0].classList.add('hidden');
+        // parentRef.current?.children[1].classList.add('hidden');
+        // console.log(parentRef.current?.clientHeight)
+        // setLeft(true);
+        // setNumber(number + 1);
     }
 
     const rightArrow = () => {
-        setRight(true);
-        setNumber(number - 1);
+        // setRight(true);
+        // setNumber(number - 1);
     }
 
     return (
@@ -37,13 +37,12 @@ function ProductList() {
                 </svg>
             </div>
 
-            <div ref={parentRef} className="h-[466.175px] xl:justify-around overflow-y-hidden xl:gap-5 justify-center flex flex-wrap w-[100%] gap-4 xl:w-[95%]">
-
+            <div ref={parentRef} className="h-[466.175px] xl:justify-around xl:gap-5 justify-center grid grid-flow-col w-[100%] gap-4 xl:w-[95%]">
                 <div className="h-[466.175px] w-[268px] bg-yellow-400">
                     1
                 </div>
                 <div className="h-[466.175px] w-[268px] bg-blue-400">
-                    2
+                    2sss
                 </div>
                 <div className="h-[466.175px] w-[268px] bg-green-400">
                     3
@@ -57,7 +56,6 @@ function ProductList() {
                 <div className="h-[466.175px] w-[268px] bg-green-400">
                     6
                 </div>
-
             </div>
 
             <div onClick={rightArrow} className="absolute inset-y-0 right-0 cursor-pointer flex items-center">
