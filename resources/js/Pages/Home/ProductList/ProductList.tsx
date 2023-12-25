@@ -1,25 +1,28 @@
 import React, { useRef, useState, useEffect } from "react";
+import useDimensions from '../../../Function/RealTimeDimensions';
 
 function ProductList() {
 
     const parentRef = useRef<HTMLInputElement>(null)
     const [number, setNumber] = useState<number>(0);
+    const { height, width } = useDimensions();
 
     useEffect(() => {
-        parentRef.current?.style.transform = `translateX(100px)`;
-    }, [number]);
+        console.log(width);
+        console.log(height);
+    });
 
     const leftArrow = () => {
-        setNumber(number - 100);
+        setNumber(( number - width ) / 2);
     }
 
     const rightArrow = () => {
-        setNumber(number + 100);
+        setNumber(( number + width ) / 2);
     }
 
     return (
-        <div className="pt-7 relative">
-            <h1 ref={parentRef} className={`text-3xl pb-5 font-bold xl:text-left text-center`}>Produk Pilihan</h1>
+        <div className="pt-7 relative w-[100%] xl:w-[95%] overflow-hidden">
+            <h1 className={`text-3xl pb-5 font-bold xl:text-left text-center`}>Produk Pilihan</h1>
 
             <div onClick={leftArrow} className="z-50 absolute inset-y-0 left-0 cursor-pointer flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-[40px] h-[40px]">
@@ -27,7 +30,7 @@ function ProductList() {
                 </svg>
             </div>
 
-            <div className={`h-[466.175px] bg-red-300 xl:justify-around xl:gap-5 justify-center flex w-[100%] gap-4 xl:w-[95%]`}>
+            <div ref={parentRef} style={{'transform' : `translateX(${number}px)`}} className={`duration-300 h-[466.175px] xl:justify-around xl:gap-5 justify-center grid grid-flow-col w-[100%] gap-4 xl:w-[95%]`}>
                 <div className="h-[466.175px] w-[268px] bg-yellow-400">
                     1
                 </div>
