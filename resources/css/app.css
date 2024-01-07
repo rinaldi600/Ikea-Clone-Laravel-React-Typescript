@@ -16,3 +16,19 @@
         url("https://db.onlinewebfonts.com/t/2b9a54453c1a3cbc651c0788ade94e4a.svg#Noto IKEA Latin Regular")format("svg");
     }
 }
+
+@layer utilities {
+    @variants responsive {
+      /* Hide scrollbar for Chrome, Safari, and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+
+
+      /* Hide scrollbar for IE, Edge, and Firefox */
+      .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+    }
+  }
