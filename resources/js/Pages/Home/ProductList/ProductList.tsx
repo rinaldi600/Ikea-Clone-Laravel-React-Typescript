@@ -1,16 +1,14 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import ProductImageOne from "../../../../img/DummyProductImage/eugenivy_now-1JJJIHh7-Mk-unsplash.jpg";
 import ProductImageTwo from "../../../../img/DummyProductImage/jean-philippe-delberghe-Ry9WBo3qmoc-unsplash.jpg";
 import ProductImageThree from "../../../../img/DummyProductImage/jeffery-ho-TIN_Lh9-Y7g-unsplash.jpg";
 import ProductImageFour from "../../../../img/DummyProductImage/jose-losada-xHS9wbNga5s-unsplash.jpg";
 import ProductImageFive from "../../../../img/DummyProductImage/khloe-arledge-8Rz_RIyp5FM-unsplash.jpg";
 import ProductImageSix from "../../../../img/DummyProductImage/scopic-ltd-NLlWwR4d3qU-unsplash.jpg";
+import Product from "./Product/Product";
 
 function ProductList() {
     const parentRef = useRef<HTMLInputElement>(null);
-    const [number, setNumber] = useState<number>(0);
-
-    useEffect(() => {});
 
     const leftArrow = () => {
         parentRef.current?.scrollBy(-400, 0);
@@ -45,64 +43,14 @@ function ProductList() {
             </div>
             <div
                 ref={parentRef}
-                style={{ transform: `translateX(${number}px)` }}
-                className={`duration-300 grid grid-flow-col xl:gap-5 overflow-x-scroll no-scrollbar justify-normal scroll-smooth no-scrollbar w-[100%] gap-4 xl:w-[95%]`}
+                className={`duration-300 p-0.5 grid grid-flow-col xl:gap-5 overflow-x-scroll no-scrollbar justify-normal scroll-smooth no-scrollbar w-[100%] gap-4 xl:w-[95%]`}
             >
-                <div className="h-[466.175px] float-left w-[268px] bg-yellow-400">
-                    <div className="h-[286.95px]">
-                        <img
-                            className="object-center h-full w-full mx-auto object-cover"
-                            src={ProductImageOne}
-                            alt="Product Image"
-                        />
-                    </div>
-                </div>
-                <div className="h-[466.175px] float-left w-[268px] bg-blue-400">
-                    <div className="h-[286.95px]">
-                        <img
-                            className="object-center h-full w-full mx-auto object-cover"
-                            src={ProductImageTwo}
-                            alt="Product Image"
-                        />
-                    </div>
-                    <p></p>
-                </div>
-                <div className="h-[466.175px] float-left w-[268px] bg-green-400">
-                    <div className="h-[286.95px]">
-                        <img
-                            className="object-center h-full w-full mx-auto object-cover"
-                            src={ProductImageThree}
-                            alt="Product Image"
-                        />
-                    </div>
-                </div>
-                <div className="h-[466.175px] float-left w-[268px] bg-amber-400">
-                    <div className="h-[286.95px]">
-                        <img
-                            className="object-center h-full w-full mx-auto object-cover"
-                            src={ProductImageFour}
-                            alt="Product Image"
-                        />
-                    </div>
-                </div>
-                <div className="h-[466.175px] float-left w-[268px] bg-blue-400">
-                    <div className="h-[286.95px]">
-                        <img
-                            className="object-center h-full w-full mx-auto object-cover"
-                            src={ProductImageFive}
-                            alt="Product Image"
-                        />
-                    </div>
-                </div>
-                <div className="h-[466.175px] float-left w-[268px] bg-green-400">
-                    <div className="h-[286.95px]">
-                        <img
-                            className="object-center h-full w-full mx-auto object-cover"
-                            src={ProductImageSix}
-                            alt="Product Image"
-                        />
-                    </div>
-                </div>
+                <Product image={ProductImageOne} />
+                <Product image={ProductImageTwo} />
+                <Product image={ProductImageThree} />
+                <Product image={ProductImageFour} />
+                <Product image={ProductImageFive} />
+                <Product image={ProductImageSix} />
             </div>
 
             <div
