@@ -4,6 +4,7 @@ import { Link } from "@inertiajs/react";
 import Banner from "./Banner/Banner";
 import CategoryBanner from "./CategoryBanner/CategoryBanner";
 import ProductList from "./ProductList/ProductList";
+import WhatsOnAtIkea from "./WhatsOnAtIkea/WhatsOnAtIkea";
 
 function Home() {
     return (
@@ -46,6 +47,9 @@ function Home() {
                 <div className="min-h-screen">
                     <CategoryBanner />
                     <ProductList />
+                </div>
+                <div className="pt-16 w-[100%] xl:w-[95%]">
+                    <WhatsOnAtIkea/>
                 </div>
             </div>
         </div>
