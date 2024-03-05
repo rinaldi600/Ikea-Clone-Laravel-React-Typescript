@@ -5,6 +5,7 @@ import Banner from "./Banner/Banner";
 import CategoryBanner from "./CategoryBanner/CategoryBanner";
 import ProductList from "./ProductList/ProductList";
 import WhatsOnAtIkea from "./WhatsOnAtIkea/WhatsOnAtIkea";
+import OtherIdeasAndInspiration from "./OtherIdeasAndInspiration/OtherIdeasAndInspiration";
 
 function Home() {
     return (
@@ -50,6 +51,9 @@ function Home() {
                 </div>
                 <div className="pt-16 w-[100%] xl:w-[95%]">
                     <WhatsOnAtIkea/>
+                </div>
+                <div className="pt-16 w-[100%] xl:w-[95%]">
+                    <OtherIdeasAndInspiration/>
                 </div>
             </div>
         </div>
