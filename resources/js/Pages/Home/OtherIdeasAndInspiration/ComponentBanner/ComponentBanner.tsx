@@ -19,9 +19,9 @@ function ComponentBanner(props : Readonly<{
                 <p className="break-words text-sm text-[#484848]">
                     {props.text}
                 </p>
-                <button className={`hover:bg-[#333333] mt-5 relative overflow-hidden px-6 underline underline-offset-1 w-[${props.widthButton}] h-[40px] text-white text-xs font-black rounded-full bg-[#111111]`}>
+                <button className={`hover:bg-[#333333] mt-5 overflow-hidden underline underline-offset-1 w-[${props.widthButton}] h-[40px] text-white text-xs font-black rounded-full bg-[#111111]`}>
                     <Link
-                        className="min-w-full h-full bg-red-300 break-words flex items-center justify-center"
+                        className="w-full h-full px-6 break-words grid items-center justify-center"
                         href="/"
                     >
                         {props.textLink}
