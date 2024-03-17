@@ -7,7 +7,7 @@ interface Props {
     background : string;
 }
 
-function ComponentBrowser(props: Props) {
+function ComponentBrowser(props: Readonly<Props>) {
     return (
         <div className="w-[408.612px] h-full bg-slate-300 overflow-hidden relative">
             <div className="h-[230.072px]">
