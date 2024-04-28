@@ -4,15 +4,83 @@ import BannerThree from "../../../../img/BrowseImage/dan-gold-4HG3Ca3EzWw-unspla
 import BannerFour from "../../../../img/BrowseImage/clark-street-mercantile-P3pI6xzovu0-unsplash.jpg";
 import BannerFive from "../../../../img/BrowseImage/roberto-nickson-bwIqQ5qQhXs-unsplash.jpg";
 import ComponentBrowser from "./ComponentBrowser/ComponentBrowser";
+import { useRef } from "react";
 
 function BrowseOurCollection() {
+    const divBrowseElementCollectionRef = useRef<HTMLDivElement>(null);
+    const leftButtonElement = useRef<HTMLButtonElement>(null);
+    const rightButtonElement = useRef<HTMLButtonElement>(null);
+
+    const rightButton = () => {
+        divBrowseElementCollectionRef.current.scrollBy({
+            top: 0,
+            left: 400,
+            behavior: "smooth",
+        });
+    };
+
+    const leftButton = () => {
+        divBrowseElementCollectionRef.current.scrollBy({
+            top: 0,
+            left: -400,
+            behavior: "smooth",
+        });
+    };
+
+    const checkIsEnd = (e) => {
+        if (
+            e.target.scrollLeft >=
+            e.target.scrollWidth - e.target.clientWidth
+        ) {
+            console.log("WORK");
+        }
+    };
+
+    const showHideButton = (type: string) => {
+        if (type == 'show') {
+            rightButtonElement.current.classList.remove('hidden');
+            rightButtonElement.current.classList.add('flex');
+        } else if (type == 'hide') {
+            rightButtonElement.current.classList.remove('flex');
+            rightButtonElement.current.classList.add('hidden');
+        }
+    };
+
     return (
         <div>
             <h1 className="text-[28px] text-center font-bold">
                 Telusuri koleksi kami
             </h1>
-            <div className="h-[677.412px] w-[100%]">
-                <div className="h-[581.412px] grid gap-2 grid-flow-col overflow-y-scroll scrollbar-hide w-full">
+            <div
+                onMouseEnter={() => showHideButton("show")}
+                onMouseLeave={() => showHideButton("hide")}
+                className="h-[677.412px] w-[100%] relative flex items-center"
+            >
+                <button
+                    ref={leftButtonElement}
+                    onClick={leftButton}
+                    className="w-[40px] h-[40px] hover:bg-[#111111] cursor-pointer hidden justify-center items-center bg-[#111111]/75 rounded-full absolute z-50 2xl:left-[-10px] left-0"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-6 h-6 text-white"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M15.75 19.5 8.25 12l7.5-7.5"
+                        />
+                    </svg>
+                </button>
+                <div
+                    onScroll={(e) => checkIsEnd(e)}
+                    ref={divBrowseElementCollectionRef}
+                    className="h-[581.412px] grid gap-2 grid-flow-col overflow-y-scroll scrollbar-hide w-full"
+                >
                     <ComponentBrowser
                         image={BannerOne}
                         title={"GOKVÄLLÅ"}
@@ -54,6 +122,26 @@ function BrowseOurCollection() {
                         background={"bg-[#9C080A]"}
                     />
                 </div>
+                <button
+                    onClick={rightButton}
+                    ref={rightButtonElement}
+                    className="w-[40px] hidden items-center justify-center h-[40px] hover:bg-[#111111] cursor-pointer bg-[#111111]/75 rounded-full absolute z-50 2xl:right-[-10px] right-0"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-6 h-6 text-white"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                        />
+                    </svg>
+                </button>
             </div>
         </div>
     );
