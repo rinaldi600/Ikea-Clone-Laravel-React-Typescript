@@ -11,7 +11,8 @@ function BrowseOurCollection() {
     const leftButtonElement = useRef<HTMLButtonElement>(null);
     const rightButtonElement = useRef<HTMLButtonElement>(null);
     const swiperScrollbar = useRef<HTMLDivElement>(null);
-    const [isEnd, setIsEnd] = useState<boolean>(false);
+    const [isEnd, setIsEnd] = useState<boolean>(false); 
+    const [isMiddle, setIsMiddle] = useState<boolean>(false); 
 
     const rightButton = () => {
         divBrowseElementCollectionRef.current.scrollBy({
@@ -40,6 +41,7 @@ function BrowseOurCollection() {
             rightButtonElement.current?.classList.remove("hidden");
 
             setIsEnd(false);
+            setIsMiddle(false);
         }
 
         if ((e.target.scrollLeft > 0) && (e.target.scrollLeft <
@@ -49,10 +51,11 @@ function BrowseOurCollection() {
     
                 rightButtonElement.current?.classList.remove("hidden");
                 rightButtonElement.current?.classList.add("flex");
+                setIsMiddle(true);
         }
 
         if (
-            e.target.scrollLeft >=
+            Math.round(e.target.scrollLeft) >=
             e.target.scrollWidth - e.target.clientWidth
         ) {
             leftButtonElement.current?.classList.remove("hidden");
@@ -61,6 +64,7 @@ function BrowseOurCollection() {
             rightButtonElement.current?.classList.add("hidden");
             rightButtonElement.current?.classList.remove("flex");
             setIsEnd(true);
+            setIsMiddle(false);
         }
     };
 
@@ -68,6 +72,9 @@ function BrowseOurCollection() {
         if (type == "show") {
             rightButtonElement.current.classList.remove("hidden");
             rightButtonElement.current.classList.add("flex");
+            console.log(isMiddle);
+
+
             if (isEnd) {
                 leftButtonElement.current?.classList.remove("hidden");
                 leftButtonElement.current?.classList.add("flex");
@@ -80,6 +87,14 @@ function BrowseOurCollection() {
 
                 rightButtonElement.current?.classList.remove('hidden');
                 rightButtonElement.current?.classList.add('flex');
+            }
+
+            if (isMiddle) {
+                leftButtonElement.current?.classList.remove("hidden");
+                leftButtonElement.current?.classList.add("flex");
+    
+                rightButtonElement.current?.classList.remove("hidden");
+                rightButtonElement.current?.classList.add("flex");
             }
         } else if (type == "hide") {
             rightButtonElement.current.classList.remove("flex");
