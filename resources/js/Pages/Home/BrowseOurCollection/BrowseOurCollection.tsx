@@ -4,12 +4,14 @@ import BannerThree from "../../../../img/BrowseImage/dan-gold-4HG3Ca3EzWw-unspla
 import BannerFour from "../../../../img/BrowseImage/clark-street-mercantile-P3pI6xzovu0-unsplash.jpg";
 import BannerFive from "../../../../img/BrowseImage/roberto-nickson-bwIqQ5qQhXs-unsplash.jpg";
 import ComponentBrowser from "./ComponentBrowser/ComponentBrowser";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 function BrowseOurCollection() {
     const divBrowseElementCollectionRef = useRef<HTMLDivElement>(null);
     const leftButtonElement = useRef<HTMLButtonElement>(null);
     const rightButtonElement = useRef<HTMLButtonElement>(null);
+    const swiperScrollbar = useRef<HTMLDivElement>(null);
+    const [isEnd, setIsEnd] = useState<boolean>(false);
 
     const rightButton = () => {
         divBrowseElementCollectionRef.current.scrollBy({
@@ -28,21 +30,65 @@ function BrowseOurCollection() {
     };
 
     const checkIsEnd = (e) => {
+        console.log("e.target.scrollLeft : ", e.target.scrollLeft);
+        console.log("e.target.scrollWidth - e.target.clientWidth : ", e.target.scrollWidth - e.target.clientWidth);
+        if (e.target.scrollLeft <= 0) {
+            leftButtonElement.current?.classList.remove("flex");
+            leftButtonElement.current?.classList.add("hidden");
+
+            rightButtonElement.current?.classList.add("flex");
+            rightButtonElement.current?.classList.remove("hidden");
+
+            setIsEnd(false);
+        }
+
+        if ((e.target.scrollLeft > 0) && (e.target.scrollLeft <
+            e.target.scrollWidth - e.target.clientWidth)) {
+                leftButtonElement.current?.classList.remove("hidden");
+                leftButtonElement.current?.classList.add("flex");
+    
+                rightButtonElement.current?.classList.remove("hidden");
+                rightButtonElement.current?.classList.add("flex");
+        }
+
         if (
             e.target.scrollLeft >=
             e.target.scrollWidth - e.target.clientWidth
         ) {
-            console.log("WORK");
+            leftButtonElement.current?.classList.remove("hidden");
+            leftButtonElement.current?.classList.add("flex");
+
+            rightButtonElement.current?.classList.add("hidden");
+            rightButtonElement.current?.classList.remove("flex");
+            setIsEnd(true);
         }
     };
 
     const showHideButton = (type: string) => {
-        if (type == 'show') {
-            rightButtonElement.current.classList.remove('hidden');
-            rightButtonElement.current.classList.add('flex');
-        } else if (type == 'hide') {
-            rightButtonElement.current.classList.remove('flex');
-            rightButtonElement.current.classList.add('hidden');
+        if (type == "show") {
+            rightButtonElement.current.classList.remove("hidden");
+            rightButtonElement.current.classList.add("flex");
+            if (isEnd) {
+                leftButtonElement.current?.classList.remove("hidden");
+                leftButtonElement.current?.classList.add("flex");
+
+                rightButtonElement.current?.classList.remove('flex');
+                rightButtonElement.current?.classList.add('hidden');
+            } else {
+                leftButtonElement.current?.classList.remove("flex");
+                leftButtonElement.current?.classList.add("hidden");
+
+                rightButtonElement.current?.classList.remove('hidden');
+                rightButtonElement.current?.classList.add('flex');
+            }
+        } else if (type == "hide") {
+            rightButtonElement.current.classList.remove("flex");
+            rightButtonElement.current.classList.add("hidden");
+
+            if (leftButtonElement.current?.classList.contains("flex")) {
+                leftButtonElement.current?.classList.remove("flex");
+                leftButtonElement.current?.classList.add("hidden");
+            }
         }
     };
 
@@ -142,6 +188,12 @@ function BrowseOurCollection() {
                         />
                     </svg>
                 </button>
+            </div>
+            <div className="h-[5px] mt-[-20px] bg-[#E5E5E5] rounded-full">
+                <div
+                    ref={swiperScrollbar}
+                    className="bg-[#464646] h-[5px] rounded-full max-w-[325.25px]"
+                ></div>
             </div>
         </div>
     );
