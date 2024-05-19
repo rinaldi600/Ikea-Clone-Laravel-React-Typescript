@@ -4,31 +4,35 @@
 
 @import url(https://db.onlinewebfonts.com/c/2b9a54453c1a3cbc651c0788ade94e4a?family=Noto+IKEA+Latin+Regular);
 
-
 @layer base {
     @font-face {
         font-family: "ikea";
         src: url("https://db.onlinewebfonts.com/t/2b9a54453c1a3cbc651c0788ade94e4a.eot");
-        src: url("https://db.onlinewebfonts.com/t/2b9a54453c1a3cbc651c0788ade94e4a.eot?#iefix")format("embedded-opentype"),
-        url("https://db.onlinewebfonts.com/t/2b9a54453c1a3cbc651c0788ade94e4a.woff2")format("woff2"),
-        url("https://db.onlinewebfonts.com/t/2b9a54453c1a3cbc651c0788ade94e4a.woff")format("woff"),
-        url("https://db.onlinewebfonts.com/t/2b9a54453c1a3cbc651c0788ade94e4a.ttf")format("truetype"),
-        url("https://db.onlinewebfonts.com/t/2b9a54453c1a3cbc651c0788ade94e4a.svg#Noto IKEA Latin Regular")format("svg");
+        src: url("https://db.onlinewebfonts.com/t/2b9a54453c1a3cbc651c0788ade94e4a.eot?#iefix")
+                format("embedded-opentype"),
+            url("https://db.onlinewebfonts.com/t/2b9a54453c1a3cbc651c0788ade94e4a.woff2")
+                format("woff2"),
+            url("https://db.onlinewebfonts.com/t/2b9a54453c1a3cbc651c0788ade94e4a.woff")
+                format("woff"),
+            url("https://db.onlinewebfonts.com/t/2b9a54453c1a3cbc651c0788ade94e4a.ttf")
+                format("truetype"),
+            url("https://db.onlinewebfonts.com/t/2b9a54453c1a3cbc651c0788ade94e4a.svg#Noto IKEA Latin Regular")
+                format("svg");
     }
 }
 
 @layer utilities {
     @variants responsive {
-      /* Hide scrollbar for Chrome, Safari, and Opera */
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
+        /* Hide scrollbar for Chrome, Safari, and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
 
-
-      /* Hide scrollbar for IE, Edge, and Firefox */
-      .no-scrollbar {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-      }
+        /* Hide scrollbar for IE, Edge, and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
     }
-  }
+
+}

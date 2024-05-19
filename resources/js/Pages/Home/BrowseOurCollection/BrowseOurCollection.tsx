@@ -140,7 +140,7 @@ function BrowseOurCollection() {
                 <div
                     onScroll={(e) => checkIsEnd(e)}
                     ref={divBrowseElementCollectionRef}
-                    className="h-[581.412px] grid gap-2 grid-flow-col overflow-y-scroll scrollbar-hide w-full"
+                    className="h-[581.412px] grid gap-2 grid-flow-col overflow-x-scroll w-full pb-2 scrollbar-thin scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-[#464646] scrollbar-track-[#E5E5E5]"
                 >
                     <ComponentBrowser
                         image={BannerOne}
@@ -204,12 +204,12 @@ function BrowseOurCollection() {
                     </svg>
                 </button>
             </div>
-            <div className="h-[5px] mt-[-20px] bg-[#E5E5E5] rounded-full">
+            {/* <div className="h-[5px] mt-[-20px] bg-[#E5E5E5] rounded-full relative">
                 <div
                     ref={swiperScrollbar}
                     className="bg-[#464646] h-[5px] rounded-full max-w-[325.25px]"
                 ></div>
-            </div>
+            </div> */}
         </div>
     );
 }
