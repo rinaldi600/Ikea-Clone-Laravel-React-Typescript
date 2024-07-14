@@ -6,7 +6,7 @@ interface Props {
 
 function CardService(props: Readonly<Props>) {
     return (
-        <div className="w-[422.125px] h-[180px] flex text-center mx-auto items-center bg-[#F5F5F5]">
+        <div className="ty:w-[100%] sm:w-[100%] md:w-[350px] lg:w-[320px] 2xl:w-[422.125px] h-[180px] flex text-center mx-auto items-center bg-[#F5F5F5]">
             <div className="grid justify-items-center items-center w-full p-2">
                 <div>
                     <img

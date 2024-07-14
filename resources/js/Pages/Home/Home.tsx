@@ -8,6 +8,7 @@ import WhatsOnAtIkea from "./WhatsOnAtIkea/WhatsOnAtIkea";
 import OtherIdeasAndInspiration from "./OtherIdeasAndInspiration/OtherIdeasAndInspiration";
 import BrowseOurCollection from "./BrowseOurCollection/BrowseOurCollection";
 import ConvenienceNew from "./ConvenienceNew/ConvenienceNew";
+import StoreCard from "./StoreSection/StoreCard/StoreCard";
 
 function Home() {
     return (
@@ -62,6 +63,9 @@ function Home() {
                 </div>
                 <div className="pt-16 w-[100%] xl:w-[95%]">
                     <ConvenienceNew />
+                </div>
+                <div className="pt-16 w-[100%] xl:w-[95%]">
+                    <StoreCard />
                 </div>
             </div>
         </div>

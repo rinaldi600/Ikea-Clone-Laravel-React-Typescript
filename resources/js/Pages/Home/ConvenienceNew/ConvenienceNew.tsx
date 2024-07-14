@@ -6,7 +6,7 @@ function ConvenienceNew() {
             <h1 className="text-2xl font-bold text-center mb-8">
                 Layanan untuk kenyamanan Anda
             </h1>
-            <div className="ty:p-2 flex flex-wrap gap-4 justify-center">
+            <div className="sm:p-2 ty:p-2 flex flex-wrap md:gap-2 xl:gap-2 gap-4 justify-center">
                 <CardService
                     source="https://d2xjmi1k71iy2m.cloudfront.net/dairyfarm/id/pageImages/page__en_us_1672653243514_3_3.png"
                     title="Pengataran"
