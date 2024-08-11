@@ -1,5 +1,6 @@
 import IkeaFactory from "../../../../img/adam-kolmacka-DQiJZa3LKwY-unsplash.jpg";
 import ImageBannerStore from "./ImageBannerStore";
+import LinkDetail from "./LinkDetail";
 import SelectStore from "./SelectStore";
 import DOMPurify from 'dompurify';
 
@@ -8,6 +9,8 @@ interface Store {
     image?: string;
     text?: string;
     title?: string;
+    link? :string;
+    titleLink? : string;
 }
 
 function StoreSection(props: Readonly<Store>) {
@@ -52,7 +55,7 @@ function StoreSection(props: Readonly<Store>) {
                             </p>
                         </div>
                         <div>
-                            <SelectStore />
+                            <LinkDetail link={props.link} title={props.titleLink} />
                         </div>
                     </div>
                 </>

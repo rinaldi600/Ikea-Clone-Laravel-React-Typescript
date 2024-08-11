@@ -9,10 +9,11 @@ import OtherIdeasAndInspiration from "./OtherIdeasAndInspiration/OtherIdeasAndIn
 import BrowseOurCollection from "./BrowseOurCollection/BrowseOurCollection";
 import ConvenienceNew from "./ConvenienceNew/ConvenienceNew";
 import StoreCard from "./StoreSection/StoreCard/StoreCard";
+import Footer from "./Footer/Footer";
 
 function Home() {
     return (
-        <div className="min-h-screen w-full lg:pt-0 font-['ikea'] mb-3">
+        <div className="min-h-screen w-full lg:pt-0 font-['ikea']">
             <div className="min-h-[41.2px] hidden font-bold text-sm text-[#111111] pl-32 xl:flex items-center gap-5">
                 <Link href="/">Produk</Link>
                 <Link href="/">Ruangan</Link>
@@ -53,10 +54,10 @@ function Home() {
                     <ProductList />
                 </div>
                 <div className="pt-16 w-[100%] xl:w-[95%]">
-                    <WhatsOnAtIkea/>
+                    <WhatsOnAtIkea />
                 </div>
                 <div className="pt-16 w-[100%] xl:w-[95%]">
-                    <OtherIdeasAndInspiration/>
+                    <OtherIdeasAndInspiration />
                 </div>
                 <div className="pt-16 w-[100%] xl:w-[95%]">
                     <BrowseOurCollection />
@@ -66,6 +67,11 @@ function Home() {
                 </div>
                 <div className="pt-16 w-[100%] xl:w-[95%]">
                     <StoreCard />
+                </div>
+            </div>
+            <div className="w-full min-h-[648.737px] bg-[#F5F5F5] mt-16">
+                <div className="xl:w-[95%] xl:pl-32 w-[100%]">
+                    <Footer />
                 </div>
             </div>
         </div>
