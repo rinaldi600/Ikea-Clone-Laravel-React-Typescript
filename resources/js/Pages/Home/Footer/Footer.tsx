@@ -1,9 +1,9 @@
+import MainLinks from "./MainLinks/MainLinks";
+
 function Footer() {
     return (
         <div className="w-full">
-            <div className="min-h-[10px] w-[100%] bg-red-300 mx-auto">
-
-            </div>
+            <MainLinks />
         </div>
     )
 }
