@@ -4,11 +4,11 @@ import ButtonSectionOne from "./ButtonSectionOne";
 
 function IkeaAppSectionOne() {
     return (
-        <div className="w-[50%] bg-yellow-200 flex gap-8 items-center">
-            <div className="max-w-[170px]">
+        <div className="lg:w-[50%] w-full flex gap-8 items-center">
+            <div className="max-w-[170px] lg:block hidden">
                 <img src={ImagePhone} alt="Image Phone" />
             </div>
-            <div className="max-w-[318px]">
+            <div className="w-full lg:max-w-[318px]">
                 <h4 className="text-xl font-semibold text-[#111111] mb-[16px]">
                     Aplikasi IKEA Indonesia
                 </h4>
@@ -17,7 +17,7 @@ function IkeaAppSectionOne() {
                     menjadi IKEA Family dan mendapatkan banyak reward spesial.
                     Download dan daftar sekarang. GRATIS!
                 </p>
-                <div>
+                <div className="">
                     <ButtonSectionOne link="/" title="Download di iOS"/>
                     <div className="mb-[16px]"></div>
                     <ButtonSectionOne link="/" title="Download di Android"/>
