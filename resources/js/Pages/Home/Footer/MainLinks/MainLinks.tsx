@@ -8,9 +8,6 @@ function MainLinks() {
                 <IkeaAppSectionOne />
                 <IkeaAppSectionTwo />
             </div>
-            <div>
-                <h1>WORK</h1>
-            </div>
         </>
     );
 }
