@@ -69,7 +69,7 @@ function Home() {
                     <StoreCard />
                 </div>
             </div>
-            <div className="w-full min-h-[648.737px] bg-[#F5F5F5] mt-16">
+            <div className="w-full min-h-[600px] bg-[#F5F5F5] mt-16">
                 <div className="xl:w-[95%] pt-[50px] xl:pl-32 w-[100%]">
                     <Footer />
                 </div>
