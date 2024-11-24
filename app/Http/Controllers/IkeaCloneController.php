@@ -12,4 +12,10 @@ class IkeaCloneController extends Controller
             'Home/Home'
         );
     }
+
+    public function login() {
+        return Inertia::render(
+            'Login/Login'
+        );
+    }
 }

@@ -18,6 +18,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [IkeaCloneController::class, 'index']);
+Route::get('/in/client', [IkeaCloneController::class, 'login']);
 
 // Route::get('/', function () {
 //     return Inertia::render('Home');

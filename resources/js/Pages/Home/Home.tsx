@@ -14,15 +14,6 @@ import Footer from "./Footer/Footer";
 function Home() {
     return (
         <div className="min-h-screen w-full lg:pt-0 font-['ikea']">
-            <div className="min-h-[41.2px] hidden font-bold text-sm text-[#111111] pl-32 xl:flex items-center gap-5">
-                <Link href="/">Produk</Link>
-                <Link href="/">Ruangan</Link>
-                <Link className="text-[#CC0008]" href="/">
-                    🏷️Promo
-                </Link>
-                <Link href="/">Solusi kurangi polusi</Link>
-                <Link href="/">Rumahmu, perlengkapanmu, caramu!</Link>
-            </div>
             <div className="xl:pl-32 pt-20">
                 <div className="min-h-[50px] rounded flex items-center gap-6 p-2 bg-[#EFEFEF] w-[100%] xl:w-[95%]">
                     <svg
@@ -69,11 +60,12 @@ function Home() {
                     <StoreCard />
                 </div>
             </div>
-            <div className="w-full min-h-[600px] bg-[#F5F5F5] mt-16">
+            {/* Ditutup footer dipindah di layout supaya bisa dipakai di semua halaman 2024-11-24 20:45:21*/}
+            {/* <div className="w-full min-h-[600px] bg-[#F5F5F5] mt-16">
                 <div className="xl:w-[95%] pt-[50px] xl:pl-32 w-[100%]">
                     <Footer />
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }
