@@ -9,8 +9,7 @@ interface PropsInterface {
 
 function HeaderMenuProduct(props: PropsInterface) {
     const [valueToggle, setToggle] = useState<boolean>(false);
-    const [valueToggleSearchProduct, setValueSearchProduct] =
-        useState<boolean>(false);
+    const [valueToggleSearchProduct, setValueSearchProduct] = useState<boolean>(false);
 
     return (
         <>
