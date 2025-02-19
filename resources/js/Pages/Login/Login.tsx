@@ -11,13 +11,13 @@ function Login() {
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
-                            stroke-width="1.5"
+                            strokeWidth="1.5"
                             stroke="currentColor"
                             className="w-[10px] h-[10px]"
                         >
                             <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 d="m8.25 4.5 7.5 7.5-7.5 7.5"
                             />
                         </svg>
@@ -71,7 +71,7 @@ function Login() {
                                 <input
                                     id="password"
                                     className="w-[90%] text-sm border-none placeholder:text-[#B2B9C1] order-transparent focus:border-transparent focus:ring-0"
-                                    type="text"
+                                    type="password"
                                     autoComplete="off"
                                     placeholder="Kata sandi"
                                 />
