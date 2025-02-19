@@ -16,7 +16,7 @@ function SearchProduct(props : PropsInterface) {
 
     return (
         <>
-            <div className={`w-full absolute z-[9999999] inset-0 ${toggleBorder ? 'h-[600px] bg-white overflow-y-scroll' : ''} p-2 rounded-lg`}>
+            <div className={`w-full absolute z-9999999 inset-0 ${toggleBorder ? 'h-[600px] bg-white overflow-y-scroll' : ''} p-2 rounded-lg`}>
                 <div className={`max-w-[1000px] flex items-center mx-auto h-[60px] overflow-hidden bg-[#F5F5F5] rounded-full ${toggleBorder ? 'border-2 border-[#0058A3]' : ''}`}>
                     <div className="w-[11%] md:w-[8%] lg:w-[5%] pl-2 text-center mx-auto">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-center mx-auto font-bold">
@@ -24,7 +24,7 @@ function SearchProduct(props : PropsInterface) {
                         </svg>
                     </div>
                     <div className="w-[89%] md:w-[92%] lg:w-[95%]">
-                        <input onFocus={() => setBorderToggle(true)} type="text" placeholder="Cari..." className="w-full h-full border-none outline-none bg-[#F5F5F5] border-transparent focus:border-transparent focus:ring-0" />
+                        <input onFocus={() => setBorderToggle(true)} type="text" placeholder="Cari..." className="w-full h-full border-none outline-hidden bg-[#F5F5F5] border-transparent focus:border-transparent focus:ring-0" />
                     </div>
                     <div onClick={() => props.setValueSearchProduct(false)} className="pr-5 cursor-pointer lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -59,7 +59,7 @@ function SearchProduct(props : PropsInterface) {
                     </div>
                 </div>
             </div>
-            <div onClick={() => setBorderToggle(false)} className={`${toggleBorder ? 'w-full z-[9999] bg-[#E1E1E1]/50 fixed inset-0' : ''}`}>
+            <div onClick={() => setBorderToggle(false)} className={`${toggleBorder ? 'w-full z-9999 bg-[#E1E1E1]/50 fixed inset-0' : ''}`}>
 
             </div>
         </>

@@ -46,7 +46,7 @@ function Login() {
                             </div>
                             <input
                                 id="email"
-                                className="w-full rounded border-1 border-[#929292] text-sm placeholder:text-[#B2B9C1]"
+                                className="w-full rounded-sm border-1 border-[#929292] text-sm placeholder:text-[#B2B9C1]"
                                 type="text"
                                 autoComplete="off"
                                 placeholder="contoh@email.com atau 821012345678"
@@ -67,7 +67,7 @@ function Login() {
                                     *
                                 </span>
                             </div>
-                            <div className="relative bg-white rounded border border-[#929292] overflow-hidden h-[37.6px]">
+                            <div className="relative bg-white rounded-sm border border-[#929292] overflow-hidden h-[37.6px]">
                                 <input
                                     id="password"
                                     className="w-[90%] text-sm border-none placeholder:text-[#B2B9C1] order-transparent focus:border-transparent focus:ring-0"

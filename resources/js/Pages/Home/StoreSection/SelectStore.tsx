@@ -1,6 +1,6 @@
 function SelectStore() {
     return (
-        <select className="w-full rounded text-sm border border-[#DFDFDF]">
+        <select className="w-full rounded-sm text-sm border border-[#DFDFDF]">
             <option>Pilih toko</option>
             <option value="https://www.ikea.co.id/in/lokasi-kami/toko/ikea-alam-sutera">
                 IKEA Alam Sutera

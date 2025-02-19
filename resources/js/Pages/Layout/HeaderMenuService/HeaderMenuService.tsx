@@ -2,7 +2,7 @@ import { Link } from "@inertiajs/inertia-react";
 
 function HeaderMenuService() {
     return (
-        <ul className="[&>*]:inline [&>*]:ml-3 w-full">
+        <ul className="*:inline *:ml-3 w-full">
             <li>
                 <Link className="text-xs font-bold hover:underline" href="/in">
                     ID | EN

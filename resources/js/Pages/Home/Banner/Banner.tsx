@@ -155,10 +155,10 @@ function Banner() {
                     </svg>
                 </div>
             </div>
-            <div ref={parentProgress} className="flex pt-3 items-center w-[100%] xl:w-[95%] rounded">
-                <div className="w-[426.358px] bg-[#7A7A7A] h-[5px] rounded"></div>
-                <div className="w-[426.358px] bg-[#F5F5F5] h-[5px] rounded"></div>
-                <div className="w-[426.358px] bg-[#F5F5F5] h-[5px] rounded"></div>
+            <div ref={parentProgress} className="flex pt-3 items-center w-[100%] xl:w-[95%] rounded-sm">
+                <div className="w-[426.358px] bg-[#7A7A7A] h-[5px] rounded-sm"></div>
+                <div className="w-[426.358px] bg-[#F5F5F5] h-[5px] rounded-sm"></div>
+                <div className="w-[426.358px] bg-[#F5F5F5] h-[5px] rounded-sm"></div>
             </div>
         </>
     )

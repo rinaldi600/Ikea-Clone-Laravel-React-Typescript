@@ -15,7 +15,7 @@ function Home() {
     return (
         <div className="min-h-screen w-full lg:pt-0 font-['ikea']">
             <div className="xl:pl-32 pt-20">
-                <div className="min-h-[50px] rounded flex items-center gap-6 p-2 bg-[#EFEFEF] w-[100%] xl:w-[95%]">
+                <div className="min-h-[50px] rounded-sm flex items-center gap-6 p-2 bg-[#EFEFEF] w-[100%] xl:w-[95%]">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
