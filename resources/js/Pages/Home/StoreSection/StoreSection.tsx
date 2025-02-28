@@ -28,9 +28,9 @@ function StoreSection(props: Readonly<Store>) {
                     <ImageBannerStore image={IkeaFactory} />
                     <div className="w-full grid justify-between h-full pt-9">
                         <div>
-                            <h3 className="text-xl font-bold">
+                            <p className="text-xl font-bold">
                                 Sampai jumpa di toko
-                            </h3>
+                            </p>
                             <p className="text-sm text-[#484848] leading-5 pt-3">
                                 Sebelum berkunjung, lihat halaman Toko dan
                                 Pick-up Point IKEA untuk mengetahui informasi
@@ -47,12 +47,12 @@ function StoreSection(props: Readonly<Store>) {
                     <ImageBannerStore image={props.image} />
                     <div className="w-full grid justify-between h-full pt-9">
                         <div>
-                            <h3 className="text-xl font-bold">
+                            <p className="text-xl font-bold">
                                 {props.title}
-                            </h3>
-                            <p className="text-sm text-[#484848] leading-5 pt-3">
-                                {htmlParse(props.text)}
                             </p>
+                            <div className="text-sm text-[#484848] leading-5 pt-3">
+                                {htmlParse(props.text)}
+                            </div>
                         </div>
                         <div>
                             <LinkDetail link={props.link} title={props.titleLink} />

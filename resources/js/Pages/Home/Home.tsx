@@ -9,7 +9,6 @@ import OtherIdeasAndInspiration from "./OtherIdeasAndInspiration/OtherIdeasAndIn
 import BrowseOurCollection from "./BrowseOurCollection/BrowseOurCollection";
 import ConvenienceNew from "./ConvenienceNew/ConvenienceNew";
 import StoreCard from "./StoreSection/StoreCard/StoreCard";
-import Footer from "./Footer/Footer";
 
 function Home() {
     return (
