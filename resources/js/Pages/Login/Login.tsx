@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Layout from "../Layout/Layout";
 import classNames from "classnames";
 import { Link } from "@inertiajs/react";
 function Login() {
     const [vPasswordBorderActive, setVPasswordBorderActive] =
         useState<boolean>(false);
+
+    const inputPassword = useRef<HTMLInputElement>(null);
 
     let divPasswordClass = classNames({
         relative: true,
@@ -17,7 +19,15 @@ function Login() {
     });
 
     const showPassword = () => {
-        console.log("WORK");
+        if (inputPassword?.current) {
+            inputPassword.current.type = "text";
+        }
+    };
+
+    const hidePassword = () => {
+        if (inputPassword?.current) {
+            inputPassword.current.type = "password";
+        }
     };
 
     return (
@@ -97,10 +107,15 @@ function Login() {
                                     }
                                     className="w-[90%] text-sm border-none placeholder:text-[#B2B9C1] border-transparent focus:border-transparent focus:ring-0 h-[37.6px]"
                                     type="password"
+                                    ref={inputPassword}
                                     placeholder="Kata sandi"
                                 />
                                 <div className="absolute inset-y-0 right-0 flex justify-center items-center">
-                                    <button type="button" onClick={showPassword}>
+                                    <button
+                                        type="button"
+                                        onMouseUp={hidePassword}
+                                        onMouseDown={showPassword}
+                                    >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
@@ -135,7 +150,7 @@ function Login() {
                                 <input
                                     id="stay_logged"
                                     type="checkbox"
-                                    className="absolute cursor-pointer w-[20px] h-[20px] bg-[#D7DCDE] border-none border-transparent focus:border-transparent focus:ring-0"
+                                    className="absolute cursor-pointer w-[20px] h-[20px] bg-[#D7DCDE] border-none border-transparent checked:bg-[#003399] focus:border-transparent focus:ring-0"
                                 />
                             </div>
 
@@ -147,9 +162,19 @@ function Login() {
                             </label>
                         </div>
                         <div className="max-w-[342px] p-2 mt-1">
-                            <button className="w-[342px] h-[55px] hover:bg-[#004F93] rounded-full bg-[#0058a3] font-bold text-sm text-white cursor-pointer">
+                            <button className="w-full h-[55px] hover:bg-[#004F93] rounded-full bg-[#0058a3] font-bold text-sm text-white cursor-pointer">
                                 Masuk
                             </button>
+                        </div>
+
+                        <div className="max-w-[342px] p-2 mt-1">
+                            <button className="w-full h-[55px] rounded-full font-bold text-sm text-[#111] border border-[#e0e0e0] hover:border-[#929292] cursor-pointer">
+                                Daftar Sekarang?
+                            </button>
+                        </div>
+
+                        <div className="max-w-[342px] p-2 mt-[48px]">
+                            <hr className="w-full" />
                         </div>
                     </div>
                 </div>
