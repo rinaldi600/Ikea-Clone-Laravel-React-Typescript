@@ -61,7 +61,7 @@ function Login() {
                     </div>
                     <div className=" w-full min-h-[781.688px]">
                         <div className="max-w-[342px] p-2">
-                            <div className="relative w-fit">
+                            <div className="relative w-fit mb-1">
                                 <label
                                     htmlFor="email"
                                     className="text-[#484848] text-sm leading-5"
@@ -85,7 +85,7 @@ function Login() {
                             </small>
                         </div>
                         <div className="max-w-[342px] p-2">
-                            <div className="relative w-full">
+                            <div className="relative w-full mb-1">
                                 <label
                                     htmlFor="password"
                                     className="text-[#484848] text-sm leading-5"
@@ -175,6 +175,36 @@ function Login() {
 
                         <div className="max-w-[342px] p-2 mt-[48px]">
                             <hr className="w-full" />
+                        </div>
+
+                        <div className="max-w-[342px] p-2 mt-8">
+                            <p className="text-center font-bold text-base text-[#111]">
+                                Apakah Anda berbelanja untuk perusahaan Anda?
+                            </p>
+                            <button className="w-full mt-5 h-[55px] rounded-full font-bold text-sm text-[#111] border border-[#e0e0e0] hover:border-[#929292] cursor-pointer">
+                                Daftar Sekarang?
+                            </button>
+                        </div>
+
+                        <div className="max-w-[342px] mt-5">
+                            <div className="max-w-[326px] mx-auto box-border h-[68px] pt-[12px] pr-[20px] pb-[12px] pl-[20px] bg-[#F5F5F5] rounded-lg">
+                                <p className="text-sm text-center text-[#484848] leading-[22px]">
+                                    Butuh bantuan? Kunjungi{" "}
+                                    <Link
+                                        className="text-[#0058a3] underline underline-offset-1 hover:no-underline"
+                                        href="/"
+                                    >
+                                        FAQ kami
+                                    </Link>{" "}
+                                    atau{" "}
+                                    <Link
+                                        className="text-[#0058a3] underline underline-offset-1 hover:no-underline"
+                                        href="/"
+                                    >
+                                        hubungi kami
+                                    </Link>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
